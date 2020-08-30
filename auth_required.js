@@ -1,5 +1,5 @@
 var auth_token = localStorage.getItem('token');
-if(auth_token===null)
+if(auth_token === undefined)
 {
     window.location.href='/login';
 }
