@@ -170,7 +170,7 @@ function updateTask(id) {
      * @todo 1. Send the request to update the task to the backend server.
      * @todo 2. Update the task in the dom.
      */
-    var updatedTasks = document.getElementById('input-button-' + id)[0].value;
+    var updatedTasks = document.getElementById('input-button-' + id).value;
     const dataUpdate = {"title":updatedTasks};
     $.ajax({
         headers: {
