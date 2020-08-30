@@ -121,6 +121,9 @@ function addTask() {
     console.log(taskName);
     const todoCreate = {"title":taskName};
     $.ajax({
+        headers: {
+            Authorization: 'Token ' + localStorage.getItem('token'),
+        },
         url: API_BASE_URL + 'todo/create/',
         method: 'POST',
         data: todoCreate,
