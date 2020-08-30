@@ -145,7 +145,7 @@ function deleteTask(id) {
         headers: {
             Authorization: 'Token ' + localStorage.getItem('token'),
         },
-        url: API_BASE_URL + 'todo/' + id,
+        url: API_BASE_URL + 'todo/' + id + '/',
         method: 'DELETE',
         success: function(data, textStatus, xhr)
         {
@@ -170,13 +170,13 @@ function updateTask(id) {
      * @todo 1. Send the request to update the task to the backend server.
      * @todo 2. Update the task in the dom.
      */
-    var updatedTasks = document.getElementById('input-button-'+id)[0].value;
+    var updatedTasks = document.getElementById('input-button-' + id)[0].value;
     const dataUpdate = {"title":updatedTasks};
     $.ajax({
         headers: {
             Authorization: 'Token ' + localStorage.getItem('token'),
         },
-        url: API_BASE_URL + 'todo/' + id,
+        url: API_BASE_URL + 'todo/' + id + '/',
         method: 'PATCH',
         data: dataUpdate,
         success: function(data, textStatus, xhr)
