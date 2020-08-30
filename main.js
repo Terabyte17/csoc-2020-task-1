@@ -81,7 +81,7 @@ function loginFieldsAreValid(username, password) {
 function login() {
     const name = document.getElementById('inputUsername').value.trim;
     const Password = document.getElementById('inputPassword').value;
-    if (loginFieldsAreValid(username, password)) {
+    if (loginFieldsAreValid(name, Password)) {
         displayInfoToast("Please wait...");
     }
     const dataForRequest = {
