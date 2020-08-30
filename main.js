@@ -142,6 +142,7 @@ function editTask(id) {
 
 function deleteTask(id) {
     const taskID={id:id};
+    console.log(id);
     $.ajax({
         headers: {
             Authorization: 'Token ' + localStorage.getItem('token')
