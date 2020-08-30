@@ -128,28 +128,25 @@ function addTask() {
         data: todoCreate,
         success: function(data, textStatus, xhr)
         {
-            //console.log('added task');
+            getTasks();
         }
     });
 }
 
 function editTask(id) {
-    document.getElementById('task-' + id).classList.add('hideme');
-    document.getElementById('task-actions-' + id).classList.add('hideme');
-    document.getElementById('input-button-' + id).classList.remove('hideme');
-    document.getElementById('done-button-' + id).classList.remove('hideme');
+    document.getElementById('task-' + id).classList.toggle('hideme');
+    document.getElementById('task-actions-' + id).classList.toggle('hideme');
+    document.getElementById('input-button-' + id).classList.toggle('hideme');
+    document.getElementById('done-button-' + id).classList.toggle('hideme');
 }
 
 function deleteTask(id) {
-    const taskID={id:id};
-    console.log(id);
     $.ajax({
         headers: {
             Authorization: 'Token ' + localStorage.getItem('token')
         },
         url: API_BASE_URL + 'todo/'+id+'/',
         method: 'DELETE',
-        data: taskID,
         success: function(data, textStatus, xhr)
         {
             console.log('task removed');
@@ -185,11 +182,8 @@ function updateTask(id) {
         success: function(data, textStatus, xhr)
         {
             console.log('task updated');
-            document.getElementById('task-'+id).innerText = "No Task";
-            document.getElementById('input-button-' + id).classList.add('hideme');
-            document.getElementById('done-button-' + id).classList.add('hideme');
-            document.getElementById('task-' + id).classList.remove('hideme');
-            document.getElementById('task-actions-' + id).classList.remove('hideme');
+            document.getElementById('task-'+id).innerText = data.title;
+            editTask(id);
         },
         error: function(xhr, textStatus, error)
         {
