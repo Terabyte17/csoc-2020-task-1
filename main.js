@@ -150,11 +150,15 @@ function deleteTask(id) {
         success: function(data, textStatus, xhr)
         {
             console.log('task removed');
-            document.getElementById('task-'+id)[0].innerText = "No Task";
+            document.getElementById('task-'+id).innerText = "No Task";
             document.getElementById('input-button-' + id).classList.add('hideme');
             document.getElementById('done-button-' + id).classList.add('hideme');
             document.getElementById('task-' + id).classList.remove('hideme');
             document.getElementById('task-actions-' + id).classList.remove('hideme');
+        },
+        error: function(xhr, textStatus, error)
+        {
+            console.log(error);
         }
     });
     /**
@@ -182,11 +186,15 @@ function updateTask(id) {
         success: function(data, textStatus, xhr)
         {
             console.log('task updated');
-            document.getElementById('task-'+id)[0].innerText = "No Task";
+            document.getElementById('task-'+id).innerText = "No Task";
             document.getElementById('input-button-' + id).classList.add('hideme');
             document.getElementById('done-button-' + id).classList.add('hideme');
             document.getElementById('task-' + id).classList.remove('hideme');
             document.getElementById('task-actions-' + id).classList.remove('hideme');
+        },
+        error: function(xhr, textStatus, error)
+        {
+            console.log(error);
         }
     });
 }
