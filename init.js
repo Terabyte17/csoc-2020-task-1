@@ -9,8 +9,11 @@ function getTasks() {
         url: API_BASE_URL + 'todo/',
         method: 'GET',
         success: function(data, textStatus, xhr)
-        {
-            document.getElementById('task1').innerText = data.title;
+        {   
+            for(var i=1;i<=2;i++)
+            {
+                document.getElementById('task-'+i).innerText = data[i-1].title;
+            }
         }
     })
 }
