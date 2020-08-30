@@ -145,7 +145,7 @@ function deleteTask(id) {
         headers: {
             Authorization: 'Token ' + localStorage.getItem('token')
         },
-        url: API_BASE_URL + 'todo/' + id + '/',
+        url: API_BASE_URL + 'todo/'+id+'/' ,
         method: 'DELETE',
         success: function(data, textStatus, xhr)
         {
@@ -156,7 +156,7 @@ function deleteTask(id) {
         {
             console.log(error);
         }
-    });
+    })
     /**
      * @todo Complete this function.
      * @todo 1. Send the request to delete the task to the backend server.
@@ -176,7 +176,7 @@ function updateTask(id) {
         headers: {
             Authorization: 'Token ' + localStorage.getItem('token'),
         },
-        url: `${API_BASE_URL}todo/1/`,
+        url: API_BASE_URL + 'todo/' + id + '/',
         method: 'PATCH',
         data: dataUpdate,
         success: function(data, textStatus, xhr)
