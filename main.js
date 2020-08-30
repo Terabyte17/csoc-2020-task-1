@@ -118,7 +118,6 @@ function addTask() {
      * @todo 2. Add the task in the dom.
      */
     const taskName = document.getElementsByClassName("form-control")[0].value;
-    console.log(taskName);
     const todoCreate = {"title":taskName};
     $.ajax({
         headers: {
@@ -129,7 +128,7 @@ function addTask() {
         data: todoCreate,
         success: function(data, textStatus, xhr)
         {
-            console.log('added task');
+            //console.log('added task');
         }
     });
 }

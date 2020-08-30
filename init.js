@@ -2,6 +2,17 @@ function getTasks() {
     /***
      * @todo Fetch the tasks created by the user and display them in the dom.
      */  
+    $.ajax({
+        headers: {
+            Authorization: 'Token ' + localStorage.getItem('token'),
+        },
+        url: API_BASE_URL + 'todo/',
+        method: 'GET',
+        success: function(data, textStatus, xhr)
+        {
+            document.getElementById('task1').innerText = data.title;
+        }
+    })
 }
 
 $.ajax({
