@@ -81,6 +81,7 @@ function loginFieldsAreValid(username, password) {
 function login() {
     const name = document.getElementById('inputUsername').value;
     const Password = document.getElementById('inputPassword').value;
+    //checking if login fields are valid or not
     if (loginFieldsAreValid(name, Password)) {
         displayInfoToast("Please wait...");
     }
@@ -96,6 +97,7 @@ function login() {
         {
             localStorage.setItem('token', data.token);
             window.location.href = '/';
+            console.log(data.token);
         },
         error: function(xhr, textStatus, error)
         {
