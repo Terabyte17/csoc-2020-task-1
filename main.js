@@ -121,7 +121,7 @@ function addTask() {
     const todoCreate = {"title":taskName};
     $.ajax({
         headers: {
-            Authorization: 'Token ' + localStorage.getItem('token'),
+            Authorization: 'Token ' + localStorage.getItem('token')
         },
         url: API_BASE_URL + 'todo/create/',
         method: 'POST',
@@ -143,18 +143,14 @@ function editTask(id) {
 function deleteTask(id) {
     $.ajax({
         headers: {
-            Authorization: 'Token ' + localStorage.getItem('token'),
+            Authorization: 'Token ' + localStorage.getItem('token')
         },
         url: API_BASE_URL + 'todo/' + id + '/',
         method: 'DELETE',
         success: function(data, textStatus, xhr)
         {
             console.log('task removed');
-            document.getElementById('task-'+id).innerText = "No Task";
-            document.getElementById('input-button-' + id).classList.add('hideme');
-            document.getElementById('done-button-' + id).classList.add('hideme');
-            document.getElementById('task-' + id).classList.remove('hideme');
-            document.getElementById('task-actions-' + id).classList.remove('hideme');
+            $('#'+id).remove();
         },
         error: function(xhr, textStatus, error)
         {
@@ -175,7 +171,7 @@ function updateTask(id) {
      * @todo 2. Update the task in the dom.
      */
     var updatedTasks = document.getElementById('input-button-' + id).value;
-    const dataUpdate = {"title":updatedTasks};
+    const dataUpdate = {title:updatedTasks};
     $.ajax({
         headers: {
             Authorization: 'Token ' + localStorage.getItem('token'),
