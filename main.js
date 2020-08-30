@@ -128,6 +128,7 @@ function addTask() {
         data: todoCreate,
         success: function(data, textStatus, xhr)
         {
+            
             getTasks();
         }
     });
@@ -150,7 +151,7 @@ function deleteTask(id) {
         success: function(data, textStatus, xhr)
         {
             console.log('task removed');
-            $('#'+id).remove();
+            getTasks();
         },
         error: function(xhr, textStatus, error)
         {
