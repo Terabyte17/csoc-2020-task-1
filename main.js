@@ -117,6 +117,18 @@ function addTask() {
      * @todo 1. Send the request to add the task to the backend server.
      * @todo 2. Add the task in the dom.
      */
+    const taskName = document.getElementsByClassName("form-control")[0].innerText;
+    console.log(taskName);
+    const todoCreate = {title:taskName};
+    $.ajax({
+        url: API_BASE_URL + 'todo/create/',
+        method: 'POST',
+        data: todoCreate,
+        success: function(data, textStatus, xhr)
+        {
+            console.log('added task');
+        }
+    });
 }
 
 function editTask(id) {
