@@ -174,7 +174,6 @@ function updateTask(id) {
      */
     const updatedTasks = document.getElementById('input-button-' + id).value;
     const dataUpdate = {title:updatedTasks, id:id};
-};
     $.ajax({
         headers: {
             Authorization: 'Token ' + localStorage.getItem('token'),
