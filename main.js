@@ -119,7 +119,7 @@ function addTask() {
      */
     const taskName = document.getElementsByClassName("form-control")[0].value;
     console.log(taskName);
-    const todoCreate = {title:taskName};
+    const todoCreate = {"title":taskName};
     $.ajax({
         url: API_BASE_URL + 'todo/create/',
         method: 'POST',
