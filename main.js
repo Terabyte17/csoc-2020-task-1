@@ -70,7 +70,38 @@ function register() {
     }
 }
 
+function loginFieldsAreValid(username, password) {
+    if (username === '' || password === '') {
+        displayErrorToast("Please fill all the fields correctly.");
+        return false;
+    }
+    return true;
+}
+
 function login() {
+    const name = document.getElementById('inputUsername').value.trim;
+    const Password = document.getElementById('inputPassword').value;
+    if (loginFieldsAreValid(username, password)) {
+        displayInfoToast("Please wait...");
+    }
+    const dataForRequest = {
+        "username": name,
+        "password": Password
+    }
+    $.ajax({
+        url: API_BASE_URL + 'auth/login/',
+        method: 'POST',
+        data: dataForRequest,
+        success: function(data, textStatus, xhr)
+        {
+            localStorage.setItem('token', data.token);
+            window.location.href = '/';
+        },
+        error: function(xhr, textStatus, error)
+        {
+            displayErrorToast("Wrong Credentials!");
+        }
+    })
     /***
      * @todo Complete this function.
      * @todo 1. Write code for form validation.
