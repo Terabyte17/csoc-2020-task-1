@@ -151,6 +151,10 @@ function deleteTask(id) {
         {
             console.log('task removed');
             document.getElementById('task-'+id)[0].innerText = "No Task";
+            document.getElementById('input-button-' + id).classList.add('hideme');
+            document.getElementById('done-button-' + id).classList.add('hideme');
+            document.getElementById('task-' + id).classList.remove('hideme');
+            document.getElementById('task-actions-' + id).classList.remove('hideme');
         }
     });
     /**
@@ -166,7 +170,7 @@ function updateTask(id) {
      * @todo 1. Send the request to update the task to the backend server.
      * @todo 2. Update the task in the dom.
      */
-    var updatedTasks = document.getElementById("input-button-"+id)[0].value;
+    var updatedTasks = document.getElementById('input-button-'+id)[0].value;
     const dataUpdate = {"title":updatedTasks};
     $.ajax({
         headers: {
@@ -179,6 +183,10 @@ function updateTask(id) {
         {
             console.log('task updated');
             document.getElementById('task-'+id)[0].innerText = "No Task";
+            document.getElementById('input-button-' + id).classList.add('hideme');
+            document.getElementById('done-button-' + id).classList.add('hideme');
+            document.getElementById('task-' + id).classList.remove('hideme');
+            document.getElementById('task-actions-' + id).classList.remove('hideme');
         }
     });
 }
