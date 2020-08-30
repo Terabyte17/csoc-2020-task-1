@@ -141,12 +141,14 @@ function editTask(id) {
 }
 
 function deleteTask(id) {
+    const taskID={id:id};
     $.ajax({
         headers: {
             Authorization: 'Token ' + localStorage.getItem('token')
         },
-        url: API_BASE_URL + 'todo/'+id ,
+        url: API_BASE_URL + 'todo/'+id+'/',
         method: 'DELETE',
+        data: taskID,
         success: function(data, textStatus, xhr)
         {
             console.log('task removed');
@@ -170,8 +172,9 @@ function updateTask(id) {
      * @todo 1. Send the request to update the task to the backend server.
      * @todo 2. Update the task in the dom.
      */
-    var updatedTasks = document.getElementById('input-button-' + id).value;
-    const dataUpdate = {title:updatedTasks};
+    const updatedTasks = document.getElementById('input-button-' + id).value;
+    const dataUpdate = {title:updatedTasks, id:id};
+};
     $.ajax({
         headers: {
             Authorization: 'Token ' + localStorage.getItem('token'),
