@@ -85,8 +85,8 @@ function login() {
       //  displayInfoToast("Please wait...");
     //}
     const dataForRequest = {
-        "username": name,
-        "password": Password
+        username: name,
+        password: Password
     }
     console.log("Hey");
     $.ajax({
@@ -101,6 +101,7 @@ function login() {
         error: function(xhr, textStatus, error)
         {
             displayErrorToast("Wrong Credentials!");
+            console.log(error);
         }
     })
     /***
