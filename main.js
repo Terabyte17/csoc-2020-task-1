@@ -176,7 +176,7 @@ function updateTask(id) {
         headers: {
             Authorization: 'Token ' + localStorage.getItem('token'),
         },
-        url: API_BASE_URL + 'todo/' + id + '/',
+        url: API_BASE_URL + 'todo/1/',
         method: 'PATCH',
         data: dataUpdate,
         success: function(data, textStatus, xhr)
