@@ -79,15 +79,16 @@ function loginFieldsAreValid(username, password) {
 }
 
 function login() {
-    const name = document.getElementById('inputUsername').value.trim;
+    const name = document.getElementById('inputUsername').value.trim();
     const Password = document.getElementById('inputPassword').value;
-    if (loginFieldsAreValid(name, Password)) {
-        displayInfoToast("Please wait...");
-    }
+    //if (loginFieldsAreValid(name, Password)) {
+      //  displayInfoToast("Please wait...");
+    //}
     const dataForRequest = {
         "username": name,
         "password": Password
     }
+    console.log("Hey");
     $.ajax({
         url: API_BASE_URL + 'auth/login/',
         method: 'POST',
