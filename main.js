@@ -141,6 +141,18 @@ function editTask(id) {
 }
 
 function deleteTask(id) {
+    $.ajax({
+        headers: {
+            Authorization: 'Token ' + localStorage.getItem('token'),
+        },
+        url: API_BASE_URL + 'todo/' + id,
+        method: 'DELETE',
+        success: function(data, textStatus, xhr)
+        {
+            console.log('task removed');
+            document.getElementById('task-'+id)[0].innerText = "No Task";
+        }
+    });
     /**
      * @todo Complete this function.
      * @todo 1. Send the request to delete the task to the backend server.
@@ -154,4 +166,19 @@ function updateTask(id) {
      * @todo 1. Send the request to update the task to the backend server.
      * @todo 2. Update the task in the dom.
      */
+    var updatedTasks = document.getElementById("input-button-"+id)[0].value;
+    const dataUpdate = {"title":updatedTasks};
+    $.ajax({
+        headers: {
+            Authorization: 'Token ' + localStorage.getItem('token'),
+        },
+        url: API_BASE_URL + 'todo/' + id,
+        method: 'PATCH',
+        data: dataUpdate,
+        success: function(data, textStatus, xhr)
+        {
+            console.log('task updated');
+            document.getElementById('task-'+id)[0].innerText = "No Task";
+        }
+    });
 }
