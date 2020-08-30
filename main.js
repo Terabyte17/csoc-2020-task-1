@@ -145,7 +145,7 @@ function deleteTask(id) {
         headers: {
             Authorization: 'Token ' + localStorage.getItem('token')
         },
-        url: API_BASE_URL + 'todo/'+id+'/' ,
+        url: API_BASE_URL + 'todo/'+id ,
         method: 'DELETE',
         success: function(data, textStatus, xhr)
         {
